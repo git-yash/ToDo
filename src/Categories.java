@@ -15,19 +15,20 @@ public class Categories {
 
     public void printCategories() {
         System.out.println("---------Categories----------");
-        System.out.println();
         if (categories.size() == 0) {
             System.out.println("You have no categories");
             return;
         }
 
-        for (Category category : categories) {
-            category.printCategory();
+        for (int i = 0; i < categories.size(); i++) {
+            categories.get(i).printCategory(i + 1);
         }
+
+        System.out.println("----------------------------");
     }
 
     public void editCategory() {
-        Category category = this.gatherCategoryIndex();
+        Category category = this.gatherCategory("edit");
     }
 
     public void addCategory() {
@@ -41,16 +42,21 @@ public class Categories {
     }
 
     public void removeCategory() {
-        Category category = this.gatherCategoryIndex();
+        Category category = this.gatherCategory("remove");
         categories.remove(category);
     }
 
     public void viewCategory() {
-        // TODO: Implement
+        Category category = gatherCategory("view");
+        category.printCategory();
     }
 
-    private Category gatherCategoryIndex() {
-        int categoryIndex = GatherInput.gatherIntInput("Which category would you like to edit?: ", getCount(), 1);
+    private int gatherCategoryIndex(String action) {
+        return GatherInput.gatherIntInput("Which category would you like to " + action + "?: ", getCount(), 1);
+    }
+
+    private Category gatherCategory(String action) {
+        int categoryIndex = this.gatherCategoryIndex(action);
         return categories.get(categoryIndex - 1);
     }
 }

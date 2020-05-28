@@ -2,7 +2,6 @@ public class ManageToDo {
     private Categories categories = new Categories();
 
     public void askOptions() {
-        categories.printCategories();
         ManageOptions.printOptions(categories.hasCategories());
 
         int maxCount = ManageOptions.getMaxOptions(categories.hasCategories());
@@ -18,6 +17,7 @@ public class ManageToDo {
         } else {
             categories.viewCategory();
         }
+        categories.printCategories();
         askOptions();
     }
 

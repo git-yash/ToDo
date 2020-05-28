@@ -6,7 +6,12 @@ public class Category {
     public List<Item> items = new ArrayList<>();
 
     public void printCategory() {
-        System.out.println(name + ": " + items.size());
+        this.printCategory(0);
+    }
+
+    public void printCategory(int id) {
+        String indexString = id == 0 ? "" : id + ". ";
+        System.out.println(indexString + name + ": items(" + items.size() + ")");
     }
 
     public void askTodoItems() {
