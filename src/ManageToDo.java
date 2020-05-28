@@ -15,10 +15,10 @@ public class ManageToDo {
             categories.editCategory();
         } else if (userInput == ManageOptions.REMOVE.getLevelCode()) {
             categories.removeCategory();
-        }
-        else{
+        } else {
             categories.viewCategory();
         }
+        askOptions();
     }
 
 

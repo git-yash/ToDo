@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class GatherInput {
         public static boolean gatherBooleanInput(String message) {
-            int result = GatherInput.gatherIntInput(message, 2, 1);
+            int result = GatherInput.gatherIntInput(message + "(Enter 1 for yes and 2 for no)", 2, 1);
             return result == 1;
         }
 

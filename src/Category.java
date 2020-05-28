@@ -10,6 +10,11 @@ public class Category {
     }
 
     public void askTodoItems() {
-        // TODO: Implement
+        String toDo = GatherInput.gatherStringInput("What would you like to add?: ", true);
+        items.add(new Item(toDo));
+        boolean addAnother = GatherInput.gatherBooleanInput("Would you like to add another?: ");
+        if (addAnother) {
+            askTodoItems();
+        }
     }
 }
