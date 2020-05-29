@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Category {
     public String name = "";
-    public List<Item> items = new ArrayList<>();
+    private List<Item> items = new ArrayList<>();
 
     public void printCategoryDetail() {
         System.out.println("---------" + name + "----------");
@@ -28,5 +28,22 @@ public class Category {
         if (addAnother) {
             askTodoItems();
         }
+    }
+
+    public boolean hasTodoItems() {
+        return this.items.size() > 0;
+    }
+
+    public Item gatherTodoItem(String action) {
+        int itemIndex = this.gatherTodoItemIndex(action);
+        return items.get(itemIndex - 1);
+    }
+
+    private int gatherTodoItemIndex(String action) {
+        return GatherInput.gatherIntInput("Which todo item would you like to " + action + "?: ", this.items.size(), 1);
+    }
+
+    public void removeTodoItem(Item item) {
+        items.remove(item);
     }
 }

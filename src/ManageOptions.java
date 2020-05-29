@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public enum ManageOptions {
     EXIT(0),
     ADD(1),

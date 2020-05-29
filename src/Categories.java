@@ -14,6 +14,7 @@ public class Categories {
 
 
     public void printCategories() {
+        System.out.println();
         System.out.println("---------Categories----------");
         if (categories.size() == 0) {
             System.out.println("You have no categories");
@@ -29,6 +30,24 @@ public class Categories {
 
     public void editCategory() {
         Category category = this.gatherCategory("edit");
+        category.printCategoryDetail();
+        EditOptions.printViewOptions(category.hasTodoItems());
+
+        int maxCount = EditOptions.getMaxOptions(category.hasTodoItems());
+        int userInput = GatherInput.gatherIntInput("Enter an option: ", maxCount, 1);
+
+        if (userInput == EditOptions.CATEGORY_NAME.getLevelCode()) {
+            category.name = GatherInput.gatherStringInput("Enter name: ", true);
+        } else if (userInput == EditOptions.TODO_DESC.getLevelCode()) {
+            Item item = category.gatherTodoItem("edit");
+            item.desc = GatherInput.gatherStringInput("Enter description: ", true);
+        } else if (userInput == EditOptions.TODO_FINISHED_STATUS.getLevelCode()) {
+            Item item = category.gatherTodoItem("edit");
+            item.isFinished = GatherInput.gatherBooleanInput("Is finished?");
+        } else {
+            Item item = category.gatherTodoItem("remove");
+            category.removeTodoItem(item);
+        }
     }
 
     public void addCategory() {
