@@ -6,7 +6,9 @@ public class Item {
         this.desc = desc;
     }
 
+
     public void printItem() {
-        System.out.println(this.desc);
+        String status = isFinished ? "X" : "-";
+        System.out.println(status + " " + desc);
     }
 }

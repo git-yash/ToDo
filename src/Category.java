@@ -5,13 +5,20 @@ public class Category {
     public String name = "";
     public List<Item> items = new ArrayList<>();
 
-    public void printCategory() {
-        this.printCategory(0);
+    public void printCategoryDetail() {
+        System.out.println("---------" + name + "----------");
+        if (items.size() == 0) {
+            System.out.println("No TODO items exist");
+        } else {
+            for (Item item : items) {
+                item.printItem();
+            }
+        }
+        System.out.println("----------------------------");
     }
 
-    public void printCategory(int id) {
-        String indexString = id == 0 ? "" : id + ". ";
-        System.out.println(indexString + name + ": items(" + items.size() + ")");
+    public void printCategorySummary(int id) {
+        System.out.println(id + ". " + name + ": items(" + items.size() + ")");
     }
 
     public void askTodoItems() {

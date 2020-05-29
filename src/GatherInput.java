@@ -41,7 +41,7 @@ public class GatherInput {
                 message = message + " (Optional)";
             }
             System.out.println(message);
-            String result = kb.next();
+            String result = kb.nextLine();
             if (result.isEmpty()) {
                 GatherInput.showErrorMessage("This value is required");
                 GatherInput.gatherStringInput(message, isRequired);

@@ -21,7 +21,7 @@ public class Categories {
         }
 
         for (int i = 0; i < categories.size(); i++) {
-            categories.get(i).printCategory(i + 1);
+            categories.get(i).printCategorySummary(i + 1);
         }
 
         System.out.println("----------------------------");
@@ -48,7 +48,7 @@ public class Categories {
 
     public void viewCategory() {
         Category category = gatherCategory("view");
-        category.printCategory();
+        category.printCategoryDetail();
     }
 
     private int gatherCategoryIndex(String action) {

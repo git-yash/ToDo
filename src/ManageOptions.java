@@ -24,7 +24,7 @@ public enum ManageOptions {
         if (hasCategories) {
             System.out.println("Enter " + ManageOptions.EDIT.getLevelCode() + " to edit a category");
             System.out.println("Enter " + ManageOptions.REMOVE.getLevelCode() + " to remove a category");
-            System.out.println("Enter " + ManageOptions.VIEW.getLevelCode() + " to view items in your category");
+            System.out.println("Enter " + ManageOptions.VIEW.getLevelCode() + " to view a category");
         }
     }
 
